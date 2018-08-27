@@ -1,0 +1,24 @@
+name: catbox
+description: A cat adoption app
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: IndieFlower
+      fonts:
+        - asset: fonts/IndieFlower.ttf
+    - family: Jua
+      fonts:
+        - asset: fonts/Jua-Regular.ttf
+  assets:
+    - assets/cats.json
+    
