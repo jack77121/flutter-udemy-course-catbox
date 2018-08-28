@@ -71,9 +71,9 @@ class _CatListState extends State<CatList> {
               ),
               subtitle: new Text(
                 cat.description,
-                isThreeLine true,
-                dense: false,
               ),
+              isThreeLine: true,
+              dense: false,
             )
           ],
         ),
