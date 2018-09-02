@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:catbox/models/cat.dart';
 import 'package:catbox/services/api.dart';
+import 'package:catbox/ui/cat_detail/detail_page.dart';
+import 'package:catbox/utils/routes.dart';
 import 'dart:async';
 
 class CatList extends StatefulWidget {
@@ -18,7 +20,7 @@ class _CatListState extends State<CatList> {
   }
 
   _loadCats() async {
-    String fileData = await DefaultAssetBundle.of(context).loadString("asset/cats.json");
+    String fileData = await DefaultAssetBundle.of(context).loadString("assets/cats.json");
     setState(() {
       _cats = CatApi.allCatsFromJson(fileData);
     });
@@ -30,8 +32,20 @@ class _CatListState extends State<CatList> {
       style: new TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: 180.0,
+        fontSize: 32.0,
       ),
+    );
+  }
+
+  _navigatorToCatDetails(Cat cat, Object avatarTag) {
+    Navigator.of(context).push(
+      new FadePageRoute(
+        builder: (c) {
+          return new CatDetailsPage(cat, avatarTag: avatarTag,);
+        },
+        settings: new RouteSettings(),
+      )
+
     );
   }
 
@@ -56,6 +70,7 @@ class _CatListState extends State<CatList> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             new ListTile(
+              onTap: () => _navigatorToCatDetails(cat, index),
               leading: new Hero(
                 tag: index,
                 child: new CircleAvatar(
