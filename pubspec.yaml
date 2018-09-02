@@ -21,4 +21,5 @@ flutter:
         - asset: fonts/Jua-Regular.ttf
   assets:
     - assets/cats.json
+    - images/profile_header_background.png
     
