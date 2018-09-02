@@ -12,7 +12,7 @@ class CatApi {
     return new Cat(
       externalId: map['id'],
       name: map['name'],
-      description: map['desctiption'],
+      description: map['description'],
       avatarUrl: map['image_url'],
       location: map['location'],
       likeCounter: map['like_counter'],
